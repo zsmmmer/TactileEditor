@@ -1,0 +1,283 @@
+body {
+  font-family: "Inria Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ebecf0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #0cebeb, #20e3b2, #29ffc6);
+  padding: 12px 40px;
+  height: 4%;
+}
+
+header .logo {
+  color: white;
+  font-family: "Inria Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+header .center-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 确保内容左对齐 */
+  gap: 15px; /* 调整元素之间的间距 */
+}
+
+header .icon {
+  width: 20px; /* 根据实际图像调整宽度 */
+  height: 20px; /* 根据实际图像调整高度 */
+}
+
+header .title {
+  color: white;
+  cursor: pointer;
+  font-family: "Inria Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 20px;
+  border-left: 0.5px solid #fff;
+}
+
+header .title-input {
+  display: none;
+  border: none;
+  font-family: "Inria Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 20px;
+  /* border-radius: 5px; */
+  border-left: 0.5px solid #fff;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+header .new-button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 3px 17px;
+  margin-right: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Inria Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+header .new-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.main-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ebecf0;
+  padding: 0 0;
+  height: 95%;
+}
+
+.toolbar-container {
+  display: flex;
+  height: 100%;
+  /* width: 20%; */
+}
+
+.toolbar-container .toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 0px;
+  width: 77px;
+}
+
+.toolbar-container .toolbar .toolbar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px; /* 添加间距分隔上下部分 */
+}
+
+.toolbar-container .toolbar .toolbar-section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* 添加间距分隔上下部分 */
+  /* border-top: 0.5px solid #fff; */
+}
+
+.toolbar-container .toolbar-section .toolbar-icon {
+  /* padding: 10px; */
+  cursor: pointer;
+  /* margin-bottom: 10px; */
+  width: 77px;
+  height: 77px;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;
+}
+.toolbar-container .toolbar-section .toolbar-icon:first-child {
+  background: #3d3f44;
+}
+
+.toolbar-container .toolbar-section .toolbar-icon img {
+  width: auto;
+  height: 45px;
+}
+
+.toolbar-container .toolbar-section1 .toolbar-icon {
+  /* padding: 10px; */
+  cursor: pointer;
+  /* margin-bottom: 10px; */
+  width: 40px;
+  height: 66px;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;
+}
+
+.toolbar-container .toolbar-section1 .toolbar-icon img {
+  width: auto;
+  height: 40px;
+}
+.toolbar-container .toolbar-section1 .toolbar-icon:first-child {
+  border-top: 0.5px solid #fff;
+}
+
+.toolbar-container .tool-panel {
+  display: none; /* 默认隐藏工具面板 */
+  background-image: url("asset/panel.png");
+  background-size: cover; /* 使背景图片覆盖整个区域 */
+  background-position: center; /* 使背景图片居中 */
+  background-repeat: no-repeat; /* 禁止背景图片重复 */
+  padding: 0px;
+  flex-direction: column;
+  gap: 20px;
+  width: 256px; /* 工具面板宽度占用整个工具栏区域 */
+  transition: width 0.3s, padding 0.3s;
+  position: relative;
+}
+
+.toolbar-container .tool-panel.expanded {
+  display: flex; /* 展开时显示工具面板 */
+}
+
+.toolbar-container .tool-panel .tool-panel-toggle {
+  position: absolute;
+  right: 0px; /* 调整为右边 */
+  top: 50%;
+  transform: translateY(-50%);
+  /* background-color: #1a1a1a; */
+  /* color: white; */
+  padding: -20px;
+  cursor: pointer;
+  /* border-radius: 5px; */
+  width: 16px;
+  height: 95px;
+}
+
+.toolbar-container .tool-panel .editbar {
+  position: absolute;
+  right: -50px; /* 调整为右边 */
+  top: 15%;
+  transform: translateY(-50%);
+  /* background-color: #1a1a1a; */
+  /* color: white; */
+  padding: 0;
+  cursor: pointer;
+  background-image: url(asset/eidtbar.png);
+  background-size: cover; /* 使背景图片覆盖整个区域 */
+  background-position: center; /* 使背景图片居中 */
+  background-repeat: no-repeat; /* 禁止背景图片重复 */
+  /* border-radius: 5px; */
+  width: 52px;
+  height: 214px;
+}
+
+.toolbar-container .tool-content {
+  display: none;
+}
+
+.toolbar-container .tool-content.active {
+  display: block;
+  padding: 20px 34px 0 18px;
+  font-family: "Inria Sans";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #8e8f91;
+  font-size: 12px;
+}
+
+.toolbar-container .tool-button {
+  background: linear-gradient(135deg, #0cebeb, #20e3b2, #29ffc6);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  font-family: "Inria Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.toolbar-container .upload-area {
+  border: 1px dashed #dfdfdf;
+  padding: 20px 13px;
+  text-align: center;
+  color: #dfdfdf;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+/* .toolbar-container .template {
+  display: flex;
+  gap: 10px;
+}
+
+.toolbar-container .template-item {
+  width: 60px;
+  height: 60px;
+  border: 0.5px solid #dfdfdf;
+  border-radius: 5px;
+} */
+
+.canvas-area {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebecf0;
+  padding: 0px 0px;
+  margin: 0;
+  height: 96%;
+}
+
+.drawing-canvas {
+  width: 60vw;
+  height: 65vh;
+  background: #fff;
+  box-shadow: 1px 2px 56.6px 0px rgba(0, 0, 0, 0.05);
+}

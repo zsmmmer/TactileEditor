@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3.js SVG File Upload and Processing</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <input
+      type="file"
+      id="fileInput"
+      accept=".svg"
+      onchange="handleFileSelect(event)"
+    />
+    <div id="drawing"></div>
+    <button onclick="exportSVG()">Export as SVG</button>
+
+    <script>
+      function handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const svgText = e.target.result;
+          processSVG(svgText);
+        };
+        reader.readAsText(file);
+      }
+
+      function processSVG(svgText) {
+        // Clear previous drawing
+        d3.select("#drawing").selectAll("*").remove();
+
+        // Append uploaded SVG to drawing div
+        d3.select("#drawing").html(svgText);
+
+        // Find all rectangles in the uploaded SVG
+        d3.selectAll("#drawing rect").each(function () {
+          const rect = d3.select(this);
+          const rectWidth = +rect.attr("width");
+          const rectHeight = +rect.attr("height");
+          const rectX = +rect.attr("x");
+          const rectY = +rect.attr("y");
+
+          // Draw grid lines inside the rectangle
+          drawGridInsideRectangle(rectX, rectY, rectWidth, rectHeight, 10, 10);
+        });
+      }
+
+      function drawGridInsideRectangle(x, y, width, height, rows, cols) {
+        const svgContainer = d3.select("#drawing").select("svg");
+
+        // Calculate spacing between lines
+        const rowStep = height / rows;
+        const colStep = width / cols;
+
+        // Draw horizontal lines
+        for (let i = 1; i < rows; i++) {
+          svgContainer
+            .append("line")
+            .attr("x1", x)
+            .attr("y1", y + i * rowStep)
+            .attr("x2", x + width)
+            .attr("y2", y + i * rowStep)
+            .attr("stroke", "black")
+            .attr("stroke-width", 1);
+        }
+
+        // Draw vertical lines
+        for (let i = 1; i < cols; i++) {
+          svgContainer
+            .append("line")
+            .attr("x1", x + i * colStep)
+            .attr("y1", y)
+            .attr("x2", x + i * colStep)
+            .attr("y2", y + height)
+            .attr("stroke", "black")
+            .attr("stroke-width", 1);
+        }
+
+        // Draw the main rectangle outline
+        svgContainer
+          .append("rect")
+          .attr("x", x)
+          .attr("y", y)
+          .attr("width", width)
+          .attr("height", height)
+          .attr("fill", "none")
+          .attr("stroke", "black")
+          .attr("stroke-width", 2);
+      }
+
+      function exportSVG() {
+        const svgElement = document.querySelector("#drawing svg");
+        const svgText = new XMLSerializer().serializeToString(svgElement);
+
+        const blob = new Blob([svgText], { type: "image/svg+xml" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "processed.svg";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 文件上传和处理：
+
+<input type="file" id="fileInput" accept=".svg" onchange="handleFileSelect(event)"> 设置文件上传的输入框，限制接受的文件类型为 SVG。
+handleFileSelect(event) 函数处理文件上传事件，读取上传的 SVG 文件并调用 processSVG(svgText) 函数处理。
+处理 SVG 文件：
+
+processSVG(svgText) 函数清除之前的绘图内容，将上传的 SVG 文本添加到 #drawing div 中。
+使用 D3.js 的选择器 d3.selectAll("#drawing rect") 找到上传的 SVG 中所有的矩形元素。
+对每个矩形调用 drawGridInsideRectangle() 函数，将矩形内部均匀分割为指定行数和列数的网格，并绘制出来。
+绘制网格函数 drawGridInsideRectangle()：
+
+接收矩形的位置 (x, y)、尺寸 (width, height)，以及网格的行数和列数 (rows, cols)。
+在指定的矩形内部绘制水平和垂直线条，形成网格效果，并在矩形周围绘制出边框。
+导出 SVG 函数 exportSVG()：
+
+将当前处理后的 SVG 元素序列化为 SVG 文本。
+创建一个 Blob 对象并通过 <a> 元素进行下载，使用户可以下载处理后的 SVG 文件。
+     -->

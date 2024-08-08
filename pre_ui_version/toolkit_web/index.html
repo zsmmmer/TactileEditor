@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TactileEditor</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">TactileEditor</div>
+      <div class="center-content">
+        <img src="asset/backward.png" alt="Icon 1" class="icon" />
+        <img src="asset/forward.png" alt="Icon 2" class="icon" />
+        <div class="title" id="title" onclick="showInput()">Add Title Here</div>
+        <input
+          type="text"
+          class="title-input"
+          id="title-input"
+          placeholder="Add Title Here"
+          onblur="hideInput()"
+        />
+      </div>
+      <button class="new-button">New+</button>
+    </header>
+    <div class="main-area">
+      <div class="toolbar-container">
+        <div class="toolbar">
+          <div class="toolbar-section">
+            <div class="toolbar-icon" onclick="switchPage('shape')">
+              <img src="asset/shapeicon.png" />
+            </div>
+            <div class="toolbar-icon" onclick="switchPage('sensor')">
+              <img src="asset/sensoricon.png" />
+            </div>
+            <div class="toolbar-icon" onclick="switchPage('connector')">
+              <img src="asset/connectoricon.png" />
+            </div>
+          </div>
+          <div class="toolbar-section1">
+            <div class="toolbar-icon" onclick="switchPage('text')">
+              <img src="asset/texticon.png" />
+            </div>
+            <div class="toolbar-icon" onclick="switchPage('canvas')">
+              <img src="asset/canvasicon.png" />
+            </div>
+            <div class="toolbar-icon" onclick="switchPage('export')">
+              <img src="asset/exporticon.png" />
+            </div>
+          </div>
+        </div>
+        <div class="tool-panel" id="tool-panel">
+          <div class="tool-panel-toggle" onclick="toggleToolPanel()">
+            <!-- &larr; -->
+          </div>
+          <div class="editbar"></div>
+          <!-- <div class="tool-panel-toggle" onclick="toggleToolPanel()">
+            <img src="asset/toggle.png" />
+          </div> -->
+          <div id="shape" class="tool-content active">
+            <div class="shape-import">
+              <input
+                type="file"
+                id="file-input"
+                class="file-input"
+                style="display: none"
+                accept=".svg"
+                onchange="handleFileSelect(event)"
+              />
+              <button
+                class="tool-button upload-button"
+                onclick="document.getElementById('file-input').click()"
+              >
+                Upload a File
+              </button>
+              <div
+                class="upload-area"
+                id="upload-area"
+                ondrop="handleDrop(event)"
+                ondragover="handleDragOver(event)"
+              >
+                Drag and drop files here to upload
+              </div>
+            </div>
+            <button class="tool-button draw-button">Draw a Shape</button>
+            <!-- 
+            <div class="template">
+              <div class="template-item"></div>
+              <div class="template-item"></div>
+              <div class="template-item"></div>
+            </div> -->
+          </div>
+          <div id="sensor" class="tool-content">Sensor Area</div>
+          <div id="connector" class="tool-content">Connector</div>
+          <div id="text" class="tool-content">Text</div>
+          <div id="canvas" class="tool-content">Canvas</div>
+          <div id="export" class="tool-content">Export</div>
+        </div>
+      </div>
+      <div class="canvas-area">
+        <svg id="canvas" class="drawing-canvas"></svg>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
