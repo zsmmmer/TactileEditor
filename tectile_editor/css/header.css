@@ -1,0 +1,78 @@
+.header {
+  height: 56px;
+  background: linear-gradient(160deg, #0cebeb, #20e3b2, #29ffc6);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px;
+}
+
+.header h1 {
+  color: white;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.header .centerbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
+}
+
+.header .centerbox img {
+  height: 22px;
+  width: auto;
+}
+.header .centerbox .cloud img {
+  height: 22px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.header .centerbox .line {
+  height: 25px;
+  width: 5px;
+  border-right: 0.5px solid #fff;
+}
+.header .centerbox .title {
+  padding-left: 5px;
+}
+.header .centerbox .title input {
+  border: none;
+  outline: none;
+  font-family: "Inria Sans";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: white;
+  background: transparent;
+}
+.header .centerbox .title input::placeholder {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.header .rightbox .new-button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 3px 15px;
+  margin-right: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  /* font-family: "Inria Sans"; */
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.header .rightbox .new-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

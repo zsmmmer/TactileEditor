@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tactile Editor</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/toolbar.css" />
+    <link rel="stylesheet" href="css/rightpanel.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/funpanel.css" />
+    <link rel="stylesheet" href="css/minibar.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="leftbox" id="topbox">
+        <h1>TactileEditor</h1>
+      </div>
+      <div class="centerbox" id="topbox">
+        <img src="assets/header/backward.png" alt="" />
+        <img src="assets/header/forward.png" alt="" />
+        <div class="line"></div>
+        <div class="title">
+          <input
+            type="text"
+            id="title"
+            required
+            minlength="1"
+            maxlength="15"
+            size="15"
+            placeholder="Input Title Here"
+          />
+        </div>
+        <div class="cloud">
+          <img src="assets/header/upload.png" alt="" />
+        </div>
+      </div>
+      <div class="rightbox" id="topbox">
+        <button class="new-button">New</button>
+      </div>
+    </div>
+    <div class="main">
+      <div class="toolbar">
+        <div class="staticbar">
+          <ul>
+            <li>
+              <img src="assets/toolbar/shape.png" alt="" />
+            </li>
+            <li>
+              <img src="assets/toolbar/sensor.png" alt="" />
+            </li>
+            <li>
+              <img src="assets/toolbar/connector.png" alt="" />
+            </li>
+            <li class="minitool">
+              <img src="assets/toolbar/texticon.png" alt="" />
+              <img src="assets/toolbar/canvasicon.png" alt="" />
+              <img src="assets/toolbar/exporticon.png" alt="" id="export-btn" />
+            </li>
+          </ul>
+        </div>
+        <div class="dynamicbar">
+          <div class="funPanel" id="shape">
+            <div class="paraArea">
+              <button>Upload a File</button>
+              <div class="uploadArea"></div>
+              <button>Draw a Shape</button>
+              <div class="template">
+                <h2>Template</h2>
+                <div class="templateBox">
+                  <div class="box"></div>
+                  <div class="box"></div>
+                  <div class="box"></div>
+                  <div class="box"></div>
+                  <div class="box"></div>
+                  <div class="box"></div>
+                </div>
+              </div>
+            </div>
+            <button onclick="closeFunPanel()"></button>
+          </div>
+          <div class="funPanel" id="sensor">
+            <div class="paraArea">
+              <div class="List">
+                <div class="title">
+                  <h2>Subarea</h2>
+                  <button></button>
+                </div>
+                <div class="subList" child-num="0">
+                  <ul>
+                    <!-- <li>
+                      <div
+                        class="main"
+                        data-expanded="false"
+                        is-selected="false"
+                      >
+                        <button></button>
+                        <div class="leftpart">
+                          <p>1</p>
+                          <div class="markColor"></div>
+                          <button id="eye"></button>
+                        </div>
+                        <div class="name">area1</div>
+                        <div class="rightpart"></div>
+                      </div>
+                      <div class="sub">
+                        <div class="line"></div>
+                        <div class="info">
+                          <div class="infoxy">
+                            <button id="eye"></button>
+                            <div class="name">line_x</div>
+                          </div>
+                          <div class="infoxy">
+                            <button id="eye"></button>
+                            <div class="name">line_y</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li> -->
+                  </ul>
+                </div>
+                <div class="connectbtn">
+                  <button></button>
+                  <button></button>
+                </div>
+              </div>
+              <div class="layout">
+                <div class="title">
+                  <h2>Layout</h2>
+                </div>
+                <div class="quickTool">
+                  <label class="qktool">
+                    <input type="radio" name="layout" />
+                    <img src="assets/toolpanel/layoutTool1.png" alt="" />
+                  </label>
+                  <label class="qktool">
+                    <input type="radio" name="layout" />
+                    <img src="assets/toolpanel/layoutTool2.png" alt="" />
+                  </label>
+                  <label class="qktool">
+                    <input type="radio" name="layout" />
+                    <img src="assets/toolpanel/layoutTool3.png" alt="" />
+                  </label>
+                  <label class="qktool">
+                    <input type="radio" name="layout" />
+                    <img src="assets/toolpanel/layoutTool4.png" alt="" />
+                  </label>
+                </div>
+                <div class="parameter">
+                  <div class="twoblock">
+                    <div class="parabox">
+                      <span>X num</span>
+                      <span class="inputPara">24</span>
+                    </div>
+                    <div class="parabox">
+                      <span>Y num</span>
+                      <span class="inputPara">24</span>
+                    </div>
+                  </div>
+                  <div class="oneblock">
+                    <div class="parabox">
+                      <span>Sensor</span>
+                      <span class="inputPara">576</span>
+                    </div>
+                  </div>
+                  <div class="sliderblock">
+                    <div class="parabox">
+                      <span>Min Dis</span>
+                      <span class="inputPara">1.75</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="5"
+                      step="0.01"
+                      value="1.75"
+                    />
+                  </div>
+                </div>
+                <button id="split-rect-btn">Generate</button>
+                <div class="line"></div>
+              </div>
+              <div class="sensorSize">
+                <div class="title">
+                  <h2>Sensor Size</h2>
+                </div>
+                <div class="title">shape</div>
+                <div class="quickTool">
+                  <label class="qktool">
+                    <input type="radio" name="sensor" />
+                    <img src="assets/toolpanel/sensorShape1.png" alt="" />
+                  </label>
+                  <label class="qktool">
+                    <input type="radio" name="sensor" />
+                    <img src="assets/toolpanel/sensorShape2.png" alt="" />
+                  </label>
+                  <label class="qktool">
+                    <input type="radio" name="sensor" />
+                    <img src="assets/toolpanel/sensorShape3.png" alt="" />
+                  </label>
+                  <label class="qktool">
+                    <input type="radio" name="sensor" />
+                    <img src="assets/toolpanel/sensorShape4.png" alt="" />
+                  </label>
+                </div>
+                <div class="parameter">
+                  <div class="sliderblock">
+                    <div class="parabox">
+                      <span>Radius</span>
+                      <span class="inputPara">6.1</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="20"
+                      step="0.1"
+                      value="6.1"
+                    />
+                  </div>
+                </div>
+                <div class="title">stroke</div>
+                <div class="parameter" style="margin-top: 10px">
+                  <div class="twoblock">
+                    <img src="assets/toolpanel/lineWeight.png" />
+                    <div class="parabox">
+                      <span>Weight</span>
+                      <span class="inputPara">5</span>
+                    </div>
+                    <div class="quickTool">
+                      <label class="qktool">
+                        <input type="radio" name="line" />
+                        <img src="assets/toolpanel/linetype1.png" alt="" />
+                      </label>
+                      <label class="qktool">
+                        <input type="radio" name="line" />
+                        <img src="assets/toolpanel/linetype2.png" alt="" />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button onclick="closeFunPanel()"></button>
+          </div>
+          <div class="funPanel">
+            <div class="paraArea">
+              <div class="List">
+                <div class="title">
+                  <h2>Connector</h2>
+                  <button></button>
+                </div>
+                <div class="subList" child-num="0">
+                  <ul>
+                    <!-- <li>
+                      <div
+                        class="main"
+                        data-expanded="false"
+                        is-selected="false"
+                      >
+                        <button></button>
+                        <div class="leftpart">
+                          <p>1</p>
+                          <div class="markColor"></div>
+                          <button></button>
+                        </div>
+                        <div class="name">connector1</div>
+                        <div class="rightpart"></div>
+                      </div>
+                      <div class="sub">
+                        <div class="line"></div>
+                        <div class="info">
+                          <div class="infoxy">
+                            <button id="eye"></button>
+                            <div class="name">line_x</div>
+                          </div>
+                          <div class="infoxy">
+                            <button id="eye"></button>
+                            <div class="name">line_y</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li> -->
+                  </ul>
+                </div>
+                <div class="connectbtn">
+                  <button></button>
+                  <button></button>
+                </div>
+              </div>
+              <div class="property">
+                <div class="title">
+                  <h2>Property</h2>
+                </div>
+                <div class="parameter">
+                  <div class="twoblock">
+                    <div class="parabox">
+                      <span>W</span>
+                      <span class="inputPara">10</span>
+                    </div>
+                    <div class="parabox">
+                      <span>H</span>
+                      <span class="inputPara">24</span>
+                    </div>
+                  </div>
+                  <div class="twoblock">
+                    <div class="parabox">
+                      <span>X</span>
+                      <span class="inputPara">203</span>
+                    </div>
+                    <div class="parabox">
+                      <span>Y</span>
+                      <span class="inputPara">433</span>
+                    </div>
+                  </div>
+                  <div class="oneblock">
+                    <div class="parabox">
+                      <span>Port Count</span>
+                      <span class="inputPara">18</span>
+                    </div>
+                  </div>
+                </div>
+                <button>Generate</button>
+                <div class="line"></div>
+                <div class="template">
+                  <h2>Template</h2>
+                  <div class="templateBox">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button onclick="closeFunPanel()"></button>
+          </div>
+        </div>
+        <div class="minibar">
+          <div class="colorPanel">
+            <div class="colorbox" style="background: #0cebeb"></div>
+            <div class="colorbox" style="background: #29ffc6"></div>
+            <div class="colorbox" style="background: #f4d35e"></div>
+            <div class="colorbox" style="background: #ffa69e"></div>
+            <div class="colorbox" style="background: #8980f5"></div>
+            <div class="colorbox" style="background: #000"></div>
+          </div>
+          <div class="toolPanel">
+            <div class="selectMove">
+              <img src="assets/minibar/select.png" />
+              <img src="assets/minibar/move.png" />
+            </div>
+            <div class="line"></div>
+            <div class="tool" is-selected="false" id="newshape1">
+              <img src="assets/minibar/newshape1.png" />
+            </div>
+            <div class="tool" is-selected="false">
+              <img src="assets/minibar/newshape2.png" />
+            </div>
+            <div class="line"></div>
+            <div class="tool1">
+              <img src="assets/minibar/weight.png" />
+            </div>
+            <div class="tool1">
+              <div class="color" is-colorPanel="false"></div>
+            </div>
+          </div>
+          <div class="toolPanel">
+            <div class="selectMove">
+              <img src="assets/minibar/select.png" />
+              <img src="assets/minibar/move.png" />
+            </div>
+            <div class="line"></div>
+            <div class="tool2">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+                <span class="tx" color="#29FFC6" is-xy="true">x</span>
+                <span class="ty" color="#0CEBEB" is-xy="false">y</span>
+              </label>
+            </div>
+
+            <div class="tool" is-selected="false">
+              <img src="assets/minibar/newwire.png" />
+            </div>
+            <div class="tool" is-selected="false">
+              <img src="assets/minibar/newwire1.png" />
+            </div>
+            <div class="tool1">
+              <div class="color" is-colorPanel="false"></div>
+            </div>
+          </div>
+          <div class="toolPanel">
+            <div class="selectMove">
+              <img src="assets/minibar/select.png" />
+              <img src="assets/minibar/move.png" />
+            </div>
+            <div class="line"></div>
+            <div class="tool2">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+                <span class="tx" color="#29FFC6" is-xy="true">x</span>
+                <span class="ty" color="#0CEBEB" is-xy="false">y</span>
+              </label>
+            </div>
+
+            <div class="tool" is-selected="false">
+              <img src="assets/minibar/newConnector.png" />
+            </div>
+            <div class="line"></div>
+            <div class="tool" is-selected="false">
+              <img src="assets/minibar/connect.png" />
+            </div>
+            <div class="tool1">
+              <div class="color" is-colorPanel="false"></div>
+            </div>
+          </div>
+          <div class="toolPanel">
+            <div class="selectMove">
+              <img src="assets/minibar/select.png" />
+              <img src="assets/minibar/move.png" />
+            </div>
+            <div class="line"></div>
+            <div class="tool" is-selected="false">
+              <img src="assets/minibar/newtext.png" />
+            </div>
+            <div class="line"></div>
+            <div class="tool1" is-selected="false">
+              <img src="assets/minibar/typeface.png" />
+            </div>
+            <div class="tool1" is-selected="false">
+              <label class="typeweight">
+                <input type="checkbox" />
+                <span class="inputweight">18</span>
+                <span>pt</span>
+              </label>
+            </div>
+            <div class="tool1">
+              <div class="color" is-colorPanel="false"></div>
+            </div>
+          </div>
+          <!-- <div class="toolPanel">canvas</div> -->
+        </div>
+      </div>
+      <div class="rightpanel">
+        <div class="sketch">
+          <div class="canvas">
+            <svg
+              id="canvas"
+              width="700"
+              height="500"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="shapeCanvas"></g>
+              <g id="sensorCanvas"></g>
+              <g id="connectorCanvas"></g>
+            </svg>
+            <!-- <div class="layerArea" id="shapeCanvas">
+              <canvas width="700" height="500" id="“canvas1"></canvas>
+            </div>
+            <div class="layerArea" id="sensorCanvas">
+              <canvas width="700" height="500" id="“canvas2"></canvas>
+            </div>
+            <div class="layerArea" id="connectorCanvas"></div> -->
+          </div>
+          <div class="layer">
+            <button>shape</button>
+            <button>sensor</button>
+            <button>connector</button>
+          </div>
+          <div class="chatbot">
+            <div class="chatPanel">
+              <div class="bottext">
+                <img src="assets/rightpanel/bot.png" alt="" class="profile" />
+                <div class="content">
+                  <h3>
+                    Welcome to TactileEditor! Start your design in a few simple
+                    steps:
+                  </h3>
+                  <p>1. Concept design</p>
+                  <p>2. Use "shape" to determine the shape of the product</p>
+                  <p>
+                    3. Use "sensor area" to determine the interactive area and
+                    design the circuit layout
+                  </p>
+                  <p>
+                    4. Use "connector" to determine the position of the
+                    connector and connect it to the circuit
+                  </p>
+                  <p>5. Fine-tune</p>
+                  <p>6. Export your design</p>
+                </div>
+              </div>
+            </div>
+            <label class="switchbtn">
+              <input type="checkbox" onchange="presentChatbot()" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="loaction">
+            <p id="locationinfo">(0,0)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/sketch.js"></script>
+    <script src="js/toolbar.js"></script>
+    <script src="js/sublist.js"></script>
+    <script src="js/minibar.js"></script>
+  </body>
+  <script src="js/draw.js"></script>
+</html>

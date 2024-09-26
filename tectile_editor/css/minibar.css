@@ -1,0 +1,192 @@
+.minibar .toolPanel {
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+.minibar .toolPanel .selectMove {
+  margin-top: 12px;
+  width: 34px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.minibar .toolPanel .selectMove img {
+  width: 12px;
+  height: auto;
+}
+
+.minibar .toolPanel .line {
+  width: 33px;
+  height: 0px;
+  margin-top: 8px;
+  border-top: 0.5px solid #cccccc;
+}
+
+.minibar .toolPanel .tool {
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  border-radius: 4px;
+}
+.minibar .toolPanel .tool1 {
+  width: 33px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+.minibar .toolPanel .tool2 {
+  width: 60px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.minibar .toolPanel .tool img {
+  width: auto;
+  height: 18px;
+}
+.minibar .toolPanel .tool1 img {
+  width: auto;
+  height: 18px;
+}
+.minibar .toolPanel .tool2 img {
+  width: auto;
+  height: 18px;
+}
+
+.minibar .toolPanel .tool1 .color {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #29ffc6;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 18px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #29ffc6;
+  border: 0.5px solid #28292c;
+  border-radius: 26px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  right: 0.5px;
+  bottom: 0.5px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 26px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* input:checked + .slider {
+  background: #29ffc6;
+} */
+
+input:checked + .slider:before {
+  transform: translateX(-16px);
+}
+
+.tx {
+  position: absolute;
+  display: inline;
+  left: 5px;
+  top: -3px;
+  color: #fff;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  transition: 0.4s;
+}
+
+.ty {
+  position: absolute;
+  display: none;
+  right: 5px;
+  top: -4px;
+  color: #fff;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  transition: 0.4s;
+}
+
+input:checked ~ .tx {
+  display: none;
+}
+
+input:checked ~ .ty {
+  display: inline;
+}
+
+.minibar .colorPanel {
+  width: 30px;
+  height: 160px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  position: absolute;
+  top: 90px;
+  right: -35px;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  justify-content: space-between;
+  display: none;
+}
+
+.minibar .colorPanel .colorbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}
+
+.minibar .typeweight span {
+  color: #000;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.minibar .typeweight .inputweight {
+  font-size: 16px;
+}
+.typeweight input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}

@@ -1,0 +1,196 @@
+.rightpanel {
+  display: flex;
+  flex-flow: column;
+}
+.rightpanel .footer {
+  height: 30px;
+  background: #fff;
+}
+
+.rightpanel .sketch {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(90deg, #ffffff 10%, rgba(0, 0, 0, 0) 10%),
+    linear-gradient(#ffffff 10%, rgba(0, 0, 0, 0) 10%);
+  background-size: 10px 10px;
+}
+
+.rightpanel .sketch .canvas {
+  width: 700px;
+  height: 500px;
+  background: #fff;
+  position: absolute;
+  top: 70px;
+  left: 100px;
+  box-shadow: 1px 2px 56.6px 0px rgba(0, 0, 0, 0.05);
+}
+
+.canvas object {
+  top: 50px;
+  left: 50px;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+}
+.rightpanel .sketch .layer {
+  position: absolute;
+  width: 275px;
+  height: 25px;
+  left: 30px;
+  bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightpanel .sketch .layer button {
+  width: 87px;
+  height: 29px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background-image: url(../assets/rightpanel/layeron.png);
+  background-size: cover; /* 使背景图片覆盖整个区域 */
+  background-position: center; /* 使背景图片居中 */
+  background-repeat: no-repeat; /* 禁止背景图片重复 */
+  color: #19e7c8;
+  border: none;
+}
+
+.rightpanel .sketch .canvas .layerArea {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 700px;
+  height: 500px;
+  background: transparent;
+  display: flex;
+}
+
+.rightpanel .sketch .chatbot {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  height: 504px;
+  width: 268px;
+  /* background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08); */
+}
+
+.rightpanel .sketch .chatbot .switchbtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 84px;
+  height: 24px;
+}
+
+.rightpanel .sketch .chatbot .switchbtn input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.rightpanel .sketch .chatbot .switchbtn .slider {
+  width: 84px;
+  height: 24px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: #d9d9d9;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+}
+.rightpanel .sketch .chatbot .switchbtn .slider::before {
+  position: absolute;
+  content: "prompt";
+  height: 21px;
+  width: 53px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 11px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+  padding-left: 7px;
+  padding-top: 1px;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  color: #20e3b2;
+}
+
+.rightpanel .sketch .chatbot .switchbtn input:checked + .slider:before {
+  transform: translateX(22px);
+}
+.rightpanel .sketch .chatbot .switchbtn input:checked + .slider {
+  background: linear-gradient(90deg, #0cebeb 0%, #20e3b2 49.5%, #29ffc6 100%);
+}
+
+.rightpanel .sketch .chatbot .chatPanel {
+  display: absolute;
+  top: 0px;
+  right: 0px;
+  height: 504px;
+  width: 268px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rightpanel .sketch .chatbot .chatPanel .bottext {
+  margin-top: 62px;
+  width: 227px;
+  display: flex;
+}
+.rightpanel .sketch .chatbot .chatPanel .bottext img {
+  width: 38px;
+  height: 38px;
+}
+
+.rightpanel .sketch .chatbot .chatPanel .bottext .content {
+  margin-left: auto;
+  width: 146px;
+  background: #f0f0f0;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.rightpanel .sketch .chatbot .chatPanel .bottext .content h3 {
+  color: #000;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+
+.rightpanel .sketch .chatbot .chatPanel .bottext .content p {
+  color: #000;
+  font-family: "Inria Sans";
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 2px;
+}
+
+.rightpanel .sketch .chatbot .chatPanel .bottext .content::after {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 8px;
+  left: -8px;
+  top: 12px;
+  background-image: url(../assets/rightpanel/chatarrow.png);
+  background-size: cover; /* 使背景图片覆盖整个区域 */
+  background-position: center; /* 使背景图片居中 */
+  background-repeat: no-repeat; /* 禁止背景图片重复 */
+}

@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  align-items: center;
+}
+.footer p {
+  padding-left: 30px;
+  color: rgba(40, 41, 44, 0.5);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+}

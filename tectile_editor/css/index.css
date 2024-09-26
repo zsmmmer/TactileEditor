@@ -1,0 +1,12 @@
+body {
+  font-family: "Inria Sans", sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: #ebecf0;
+  display: flex;
+  flex-flow: column;
+}
+
+body .main {
+  flex: 1;
+}
