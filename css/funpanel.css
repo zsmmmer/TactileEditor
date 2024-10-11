@@ -50,9 +50,15 @@
 .dynamicbar .paraArea .templateBox {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 三列，宽度均等 */
-  grid-template-rows: repeat(2, 1fr); /* 两行，高度均等 */
   gap: 4px;
   margin-top: 10px;
+  max-height: 300px;                     /* 限制最大高度*/
+  overflow-y: auto;                      /* 开启垂直滚动 */
+  grid-auto-rows: 1fr;      /* 自动扩展行 */
+
+  /* Customize scrollbar appearance */
+  /* scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1; */
 }
 
 .dynamicbar .paraArea .templateBox .box {
