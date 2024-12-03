@@ -1,114 +1,68 @@
 .toolbar {
-  width: 75px;
-  height: 94vh;
-  background: transparent;
-  display: flex;
-  position: relative;
-}
-.toolbar .staticbar {
-  width: 75px;
-  height: 94vh;
-  background: #28292c;
-}
-
-.toolbar .staticbar ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 480px;
-  width: 75px;
+    position: absolute;
+    bottom: 120px;
+    left: 500px;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
 }
 
-.toolbar .staticbar ul li {
-  height: 80px;
-  width: 75px;
-  background: #28292c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition-duration: 1s;
+.toolbar .frame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: var(--panel-shadow);
+    background: radial-gradient(50% 50% at 50% 50%,rgba(255, 255, 255, 0.5) 37.5%,rgba(255, 255, 255, 0.7) 100%);
 }
 
-/* .toolbar .staticbar ul li:hover {
-  background: rgba(0, 0, 0, 0.4);
-} */
-
-.toolbar .staticbar ul li img {
-  height: 45px;
-  width: auto;
+.toolbar .unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    gap: 4px;
+    margin-right: 12px;
+    padding: 0;
 }
 
-.toolbar .staticbar ul .minitool {
-  margin-top: auto;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px 0;
-  justify-content: space-between;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.6);
-  width: 40px;
-}
-/* .toolbar .staticbar ul .minitool:hover {
-  background: #28292c;
-} */
-.toolbar .staticbar ul .minitool img {
-  height: 40px;
-  width: auto;
-  opacity: 0.6;
-  transition-duration: 1s;
+.toolbar .wideunit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    gap: 4px;
+    padding: 0;
 }
 
-/* .toolbar .staticbar ul .minitool img:hover {
-  height: 40px;
-  width: auto;
-  opacity: 1;
-} */
-
-.dynamicbar {
-  display: none;
-  width: 256px;
-  height: 94vh;
-  background-image: url("../assets/toolbar/funPanel.png");
-  background-size: cover; /* 使背景图片覆盖整个区域 */
-  background-position: center; /* 使背景图片居中 */
-  background-repeat: no-repeat; /* 禁止背景图片重复 */
+.toolbar .text {
+    text-align: center;
+    color: var(--text-normal, rgba(9, 16, 33, 0.60));
+    font-family: "Inria Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding-right: 12px;
 }
 
-.dynamicbar .funPanel {
-  display: none;
-  width: 256px;
-  height: 94vh;
-  align-items: center;
+.toolbar .img {
+    width: 25px;
+    height: 25px;
+    padding-right: 12px;
+    border-right: 0.5px solid rgba(9, 16, 33, 0.30);
 }
 
-.dynamicbar .funPanel .paraArea {
-  width: 240px;
-  height: 94vh;
-}
-
-.dynamicbar .funPanel button {
-  width: 16px;
-  height: 64px;
-  background: transparent;
-  border: none;
-}
-
-.toolbar .minibar {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: -72px;
-  width: 52px;
-  height: 214px;
-  background: #fff;
-  border-radius: 8px;
-  z-index: 10;
-}
-
-.toolbar .minibar .toolPanel {
-  display: none;
-  width: 52px;
-  height: 214px;
-  background: transparent;
+.toolbar .midimg {
+    width: 25px;
+    height: 25px;
+    padding-right: 12px;
 }

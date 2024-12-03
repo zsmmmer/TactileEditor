@@ -1,12 +1,30 @@
-body {
-  font-family: "Inria Sans", sans-serif;
-  height: 100%;
-  width: 100%;
-  background-color: #ebecf0;
-  display: flex;
-  flex-flow: column;
+.app-container {
+  position: relative;
+  width: 1728px;
+  height: 1117px;
+  background: #F1F7FC;
+  box-shadow: 4px 4px 30.5px 0px rgba(0, 0, 0, 0.05);
+
 }
 
-body .main {
-  flex: 1;
+.app-container button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.canvas .panel {
+  position: absolute;
+  width: 900px;
+  height: 690px;
+  background-color: rgba(255, 255, 255);
+  margin-top: 180px;
+  margin-left: 350px; 
+  z-index: 0;  
 }
